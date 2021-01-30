@@ -14,7 +14,7 @@ class Client:
         self.last_order = None
         self.wallets = None
 
-    # - UTILS
+    # [source] -> https://github.com/bitfinexcom/bitfinex-api-py/blob/master/bfxapi/utils/auth.py
     def _generate_auth_headers(self, path, body):
         nonce = str(self._gen_nonce())
         signature = "/api/v2/{}{}{}".format(path, nonce, body)
@@ -32,7 +32,7 @@ class Client:
     def _gen_unique_cid(self):
         return int(round(time.time() * 1000))
 
-    # - - #
+    # - [source] -> https://github.com/akcarsten/bitfinex_api/blob/master/bitfinex/bitfinex_v2.py
     def post(self, endpoint, data={}, params=''):
         url = f'{self.host}/{endpoint}'
         sData = json.dumps(data)
